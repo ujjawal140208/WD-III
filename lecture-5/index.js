@@ -51,14 +51,19 @@ const data = {
 //         else console.log("created")
 // })
 
-fs.readFile("data.json","utf8",(err,res)=>{
-    if (err) console.log(err)
-        else console.log(res)
-})
 const new_data = {
     name:"rakesh"
 }
-fs.appendFile("data.json",JSON.stringify(new_data,null,2),(err)=>{
+
+fs.readFile("data.json","utf8",(err,res)=>{
     if (err) console.log(err)
-        else console.log("updated")
+        else{
+    let temp = JSON.parse(res)
+    temp.push(new_data)
+
+    fs.writeFile("data.json",JSON.stringify(temp,null,2),(err)=>{
+        if (err) console.log(err)
+            else console.log("file updated")
+    })
+        }
 })

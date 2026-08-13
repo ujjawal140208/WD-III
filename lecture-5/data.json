@@ -1,7 +1,12 @@
-{
+[
+  {
     "name": "Ujjawal",
     "age": 19
-}
-{
+  },
+  {
     "name": "rakesh"
-}
+  },
+  {
+    "name": "rakesh"
+  }
+]
