@@ -81,16 +81,32 @@ const { fileURLToPath } = require("url")
 
 // console.log(path.extname("home/user/data/file.txt"))
 
-const filepath = path.join("home", "data", "user", "file.txt")
-console.log(filepath)
+// const filepath = path.join("home", "data", "user", "file.txt")
+// console.log(filepath)
 
-fs.mkdir(path.dirname(filepath), { recursive: true }, (err) => {
-    if (err) console.log(err)
-    else {
-        fs.writeFile(filepath, "", (err) => {
-            if (err) console.log(err)
-            else console.log("done")
-        })
-    }
+// fs.mkdir(path.dirname(filepath), { recursive: true }, (err) => {
+//     if (err) console.log(err)
+//     else {
+//         fs.writeFile(filepath, "", (err) => {
+//             if (err) console.log(err)
+//             else console.log("done")
+//         })
+//     }
+// })
+
+const crypto = require("crypto")
+
+// let password_1 = "password@1234"
+// let password_2 = "password@1234"
+
+// let encrypt_1 = crypto.createHash("sha256").update(password_1).digest("hex")
+// let encrypt_2 = crypto.createHash("sha256").update(password_2).digest("hex")
+// console.log(encrypt_1, "\n" , encrypt_2)
+
+
+const dns = require("dns")
+
+dns.lookup("google.com",(err,address,family)=>{
+    console.log(address)
+    console.log(family)
 })
-
