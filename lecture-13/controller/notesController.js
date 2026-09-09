@@ -1,7 +1,12 @@
 const { notes } = require("../models/data")
 
 const getNotes = (req,res)=>{
-    res.status(200).send(notes)
+    try{
+        res.status(200).send(notes)
+    }catch(err){
+        console.log("aa thuuuu abey chal")
+        res.status(500).send(err)
+    }
 }
 
 const createNotes = (req,res)=>{
