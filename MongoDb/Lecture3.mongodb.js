@@ -69,11 +69,68 @@ db.student.aggregate([
 // ])
 
 
-db.student.aggregate([
-    {$group:{
-        _id:"$course",
-        NumberOfStudents:{
-            $sum:1
-        }
-    }}
-])
+// db.student.aggregate([
+//     {$group:{
+//         _id:"$course",
+//         NumberOfStudents:{
+//             $sum:1
+//         }
+//     }}
+// ])
+
+// db.student.aggregate([
+//     {$group:{
+//         _id:"$course",
+//         Avg_ATTENDANCE:{
+//             $avg:"$attendance"
+//         }
+//     }}
+// ])
+
+
+// db.student.aggregate([
+//     {$group:{
+//         _id:"$course",
+//         Max_maths_marks:{
+//             $max:"$marks.math"
+//         },
+//         Min_maths_marks:{
+//             $min:"$marks.math"
+//         },
+//         avg_marks_maths:{
+//             $avg:"$marks.math"
+//         }
+//     }}
+// ])
+
+
+
+// db.student.aggregate([
+//     {$group:{
+//         _id:"$city",
+//         total_Students:{
+//             $sum : 1
+//         }
+//     }}
+// ])
+
+
+// db.student.aggregate([
+//     {
+//         $match:{
+//             "course":"CSE"
+//         }
+//     },
+//     {
+//         $group:{
+//             _id:null,
+//             avg_att:{
+//                 $avg:"$attendance"
+//             }
+//         }
+//     }
+// ])
+
+
+
+
