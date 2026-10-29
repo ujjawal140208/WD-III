@@ -28,7 +28,7 @@ use("DBMS1")
 //     {"course":"CSE"}
 // )
 
-db.student.aggregate([
+// db.student.aggregate([
     // {$group: {
     //   _id: "$age",
     // }}\
@@ -41,7 +41,7 @@ db.student.aggregate([
     //   name:1,
     //   course:1
     // }}
-])
+//])
 
 // db.student.aggregate([
 //     {$match:{
@@ -132,5 +132,54 @@ db.student.aggregate([
 // ])
 
 
+// db.student.aggregate([
+//     {
+//         $match:{
+//             "course":"BCA"
+//         }
+//     },
+//     {
+//         $group: {
+//           _id: null,
+//           maxMatchMarks: {
+//             $max: "$marks.math"
+//           }
+//         }
+//     }
+// ])
 
 
+// db.student.aggregate([
+//     {
+//         $match:{
+//             "course":"CSE",
+//             "attendance":{
+//                 $gt:80
+//             }
+//         }
+//     },
+//     {
+//         $group: {
+//           _id: null,
+//           NumebrOfStudents: {
+//             $sum: 1
+//           }
+//         }
+//     }
+// ])
+
+db.student.aggregate([
+    {
+        $project: {
+            name:1,
+            totalMarks:{
+                $add:["$marks.math","$marks.dbms","$marks.web"]
+            }
+        },
+    },
+    {
+        $sort:{
+            "totalMarks": 1,
+        }
+    }
+])
