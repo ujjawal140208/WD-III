@@ -1,12 +1,14 @@
 const userSchema = require("../models/user");
-
+const bcrypt = require("bcrypt")
 const signup =async (req,res)=>{
     let {name,email,course,password,age} = req.body;
 
     // if(!name ||!email||!password||!age){
     //     return res.status(403).send("Invalid details")
     // }
-   let user =  await userSchema.create({name,email,course,password,age})
+    let salt = await bcrypt.genSalt(10)
+    let hashedpassword = await bcrypt.hash(password,salt)
+   let user =  await userSchema.create({name,email,course,password:hashedpassword,age})
 
    res.status(201).json({
     "message":"User Created Successfully",
