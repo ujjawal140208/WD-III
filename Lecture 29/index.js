@@ -5,14 +5,19 @@ const db =require("./config/db")
 const app = express();
 db();
 const noteRoutes = require("./routes/noteRoutes")
-const userRoutes = require("./routes/userRoutes")
+const userRoutes = require("./routes/userRoutes");
+const cookieParser = require("cookie-parser");
+
+
+
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(morgan("combined"))
-
+app.use(cookieParser())
 
 app.use("/api",noteRoutes)
 app.use("/user",userRoutes)
+
 
 
 app.listen(process.env.PORT,()=>{
